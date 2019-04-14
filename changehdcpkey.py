@@ -34,6 +34,7 @@ def crateHDCPKeyArray(inputfilename,output_filename):
 	target_file_object=open(output_filename,'w')
 	try:
 		target_file_object.truncate()
+                target_file_object.write("#define CC_HDCP_KEY_CONTENT_SIZE "+len(HDCPkeydata)+"\n");
 		target_file_object.write("mDefHDCPKeyContentBuf[CC_HDCP_KEY_CONTENT_SIZE] = {")
 		for x in xrange(len(HDCPkeydata)):
 			if (x%10 == 0):
